@@ -1,23 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Solo Signal Studio</title>
-<style>
-body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#14110f;color:#eee;font-family:sans-serif;text-align:center;padding:20px;box-sizing:border-box}
-h1{color:#e8913a;margin-bottom:4px}
-a.btn{display:inline-block;margin:20px 0;padding:14px 26px;background:#e8913a;color:#14110f;border-radius:10px;text-decoration:none;font-weight:bold}
-a{color:#e8913a}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080f23">
+  <title>Hollow Bomber: Dig &amp; Blast — Android Oyunu | Solo Signal Studio</title>
+  <meta name="description" content="Kaz, bombala, derine in. Solo Signal Studio'nun piksel grafikli Android oyunu Hollow Bomber'ı Google Play'de keşfet.">
+  <meta property="og:title" content="Hollow Bomber: Dig &amp; Blast — Solo Signal Studio">
+  <link rel="canonical" href="https://emrebunlu.github.io/">
+  <meta property="og:description" content="Dig. Blast. Go deeper. Play Hollow Bomber on Android.">
+  <meta property="og:image" content="https://hollow-bomber-play.whitegecko1.chatgpt.site/assets/icon.webp">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="https://hollow-bomber-play.whitegecko1.chatgpt.site/assets/icon.webp">
+  <link rel="preload" as="image" href="https://hollow-bomber-play.whitegecko1.chatgpt.site/assets/cavern.webp">
+  <style>
+    :root{color-scheme:dark;--gold:#ecc57d;--ink:#080f23;--paper:#fff8e9}
+    *{box-sizing:border-box}body{margin:0;background:var(--ink);color:var(--paper);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100svh}
+    body:before{content:"";position:fixed;inset:0;z-index:-2;background:url('https://hollow-bomber-play.whitegecko1.chatgpt.site/assets/cavern.webp') center/cover no-repeat}
+    body:after{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(4,8,21,.26),rgba(5,10,25,.07) 45%,rgba(4,8,21,.7))}
+    .page{min-height:100svh;display:flex;flex-direction:column;padding:28px 40px 22px;max-width:1600px;margin:auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;gap:11px;align-items:center;color:var(--gold);font-size:13px;font-weight:650;letter-spacing:.05em}
+    .signal{width:29px;height:29px;flex:none}
+    .languages{display:flex;gap:5px;background:#080f2370;border:1px solid #eac28124;border-radius:99px;padding:4px}
+    .languages button{border:0;background:none;color:#b9bfcd;padding:7px 11px;border-radius:99px;font-size:12px;cursor:pointer;font-weight:700}
+    .languages button[aria-pressed=true]{color:#0a1022;background:var(--gold)}
+    main{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:45px 0}
+    .hero{max-width:650px;width:100%;position:relative}
+    .icon{width:108px;height:108px;border-radius:24px;border:1px solid #f1cf8d5e;box-shadow:0 14px 55px #0007,0 0 60px #e5a94a16;display:block;margin:0 auto 28px}
+    .eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.25em;font-size:10px;font-weight:700;margin:0 0 13px}
+    h1{font-family:Impact,"Arial Black",system-ui,sans-serif;font-size:clamp(50px,6.5vw,86px);font-weight:900;letter-spacing:.035em;line-height:1.03;margin:0;text-shadow:0 4px 0 #0008,0 10px 35px #0008}
+    h1 span{display:block;color:var(--gold)}
+    .tagline{font-size:clamp(21px,2.4vw,28px);font-weight:650;letter-spacing:-.025em;margin:24px 0 10px}
+    .description{color:#c0c6d8;font-size:15px;line-height:1.7;max-width:395px;margin:0 auto}
+    .store{display:block;width:250px;max-width:85%;margin:25px auto 1px;border-radius:13px;transition:transform .2s,filter .2s;filter:drop-shadow(0 8px 22px #0006)}
+    .store img{width:100%;height:auto;display:block}.store:hover{transform:translateY(-3px);filter:drop-shadow(0 10px 26px #e9bb5035)}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:5px}
+    .platform{color:#a7afc3;font-size:11px;letter-spacing:.08em;margin:0}
+    .rule{height:1px;background:linear-gradient(90deg,transparent,#d3b27655,transparent);max-width:220px;margin:27px auto 18px}
+    .youtube{color:#d8dbe5;font-size:12px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}.youtube:hover{color:var(--gold)}.youtube svg{width:17px;height:17px}
+    footer{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#929bad;font-size:10px;letter-spacing:.04em}
+    footer a{color:#b6bdcc;text-decoration:none}footer a:hover{color:var(--gold)}
+    @media(max-width:600px){.page{padding:20px 21px 19px}.brand{font-size:11px;gap:8px;letter-spacing:0}.signal{width:25px;height:25px}main{padding:38px 0}.icon{width:90px;height:90px;margin-bottom:24px;border-radius:20px}.tagline{margin-top:20px}.description{max-width:290px;font-size:14px}.store{width:242px;margin-top:22px}footer{font-size:9px;flex-direction:column;gap:8px}body:before{background-position:48% center}body:after{background:linear-gradient(90deg,#050b1c50,#050b1c12,#050b1c50)}h1{font-size:57px}.eyebrow{font-size:9px}}
+    @media(max-height:740px){main{padding:25px 0}.icon{width:76px;height:76px;margin-bottom:17px}.tagline{margin-top:16px}.store{margin-top:13px;width:220px}.rule{margin-top:15px}h1{font-size:54px}}
+    @media(prefers-reduced-motion:reduce){.store{transition:none}}
+  </style>
 </head>
 <body>
-<div>
-<h1>Solo Signal Studio</h1>
-<p>Bağımsız mobil oyun geliştiricisi</p>
-<h2>Hollow Bomber</h2>
-<a class="btn" href="https://play.google.com/store/apps/details?id=com.solosignal.hollowbomber">Google Play'de İndir</a>
-<p>İletişim: <a href="mailto:solosignalstudio@gmail.com">solosignalstudio@gmail.com</a></p>
-</div>
+  <div class="page">
+    <header>
+      <div class="brand"><svg class="signal" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="3" fill="currentColor"/><path d="M14 26a8.5 8.5 0 1 1 12 0M10 30a14 14 0 1 1 20 0M6 34a19 19 0 1 1 28 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Solo Signal Studio</div>
+      <nav class="languages" aria-label="Language / Dil"><button type="button" data-lang="tr" aria-pressed="true">TR</button><button type="button" data-lang="en" aria-pressed="false">EN</button></nav>
+    </header>
+    <main><section class="hero" aria-labelledby="game-title">
+      <img class="icon" src="https://hollow-bomber-play.whitegecko1.chatgpt.site/assets/icon.webp" alt="Hollow Bomber" width="108" height="108">
+      <p class="eyebrow" data-copy="eyebrow">Bir Solo Signal Studio oyunu</p>
+      <h1 id="game-title">HOLLOW <span>BOMBER</span></h1>
+      <p class="tagline" data-copy="tagline">Kaz. Bombala. Derine in.</p>
+      <p class="description" data-copy="description">Hollow Bomber, Solo Signal Studio’nun Android için geliştirdiği piksel grafikli aksiyon oyunu. Yeraltında tüneller kaz, bombalarla canavarları alt et ve kendine kaçış yolu bırak. Topladığın Echo ile bombalarını, zıplamanı, hızını ve canını kalıcı olarak geliştir. Ücretsiz oyna; reklam içerir. Türkçe ve İngilizce dil desteğiyle Google Play’de.</p>
+      <a class="store" href="https://play.google.com/store/apps/details?id=com.solosignal.hollowbomber" aria-label="Hollow Bomber — Google Play"><img id="store-badge" src="https://hollow-bomber-play.whitegecko1.chatgpt.site/assets/google-play-tr.png" alt="Google Play'den alın" width="646" height="250"></a>
+      <p class="platform" data-copy="platform">Android için • Piksel aksiyon</p>
+      <p style="margin:20px 0 0"><a style="color:var(--gold);font-size:13px;text-underline-offset:4px" href="https://hollow-bomber-play.whitegecko1.chatgpt.site/" data-copy="website">Hollow Bomber tanıtım sitesi ↗</a></p><div class="rule"></div>
+      <a class="youtube" href="https://www.youtube.com/@SoloSignalStudio" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.4-1C16.4 3.4 12 3.4 12 3.4s-4.4 0-7.7.2c-.5.1-1.5.1-2.4 1C1.2 5.3 1 7 1 7S.8 9 .8 11v2c0 2 .2 4 .2 4s.2 1.7.9 2.4c.9.9 2.1.9 2.6 1 1.9.2 7.5.2 7.5.2s4.4 0 7.7-.2c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.4.9-2.4s.2-2 .2-4v-2c0-2-.2-4-.2-4ZM9.7 15.5v-7l6.7 3.5-6.7 3.5Z"/></svg><span data-copy="youtube">Oyundan anlar · YouTube</span><span aria-hidden="true">↗</span></a>
+    </section></main>
+    <footer><span>© <span id="year">2026</span> Solo Signal Studio</span><a href="mailto:solosignalstudio@gmail.com" data-copy="contact">İletişim</a></footer>
+  </div>
+  <script>
+    const copy={tr:{eyebrow:'Bir Solo Signal Studio oyunu',tagline:'Kaz. Bombala. Derine in.',description:'Hollow Bomber, Solo Signal Studio’nun Android için geliştirdiği piksel grafikli aksiyon oyunu. Yeraltında tüneller kaz, bombalarla canavarları alt et ve kendine kaçış yolu bırak. Topladığın Echo ile bombalarını, zıplamanı, hızını ve canını kalıcı olarak geliştir. Ücretsiz oyna; reklam içerir. Türkçe ve İngilizce dil desteğiyle Google Play’de.',platform:'Android için • Piksel aksiyon',website:'Hollow Bomber tanıtım sitesi ↗',youtube:'Oyundan anlar · YouTube',contact:'İletişim',badge:"Google Play’den alın"},en:{eyebrow:'A game by Solo Signal Studio',tagline:'Dig. Blast. Go deeper.',description:'Hollow Bomber is a pixel art action game for Android by Solo Signal Studio. Dig underground tunnels, fight monsters with bombs and leave yourself an escape route. Spend your Echo on permanent upgrades to bombs, jumping, speed and health. Free to play with ads. Available on Google Play in English and Turkish.',platform:'For Android • Pixel action',website:'Hollow Bomber game website ↗',youtube:'Gameplay moments · YouTube',contact:'Contact',badge:'Get it on Google Play'}};
+    function setLanguage(lang){if(!copy[lang])lang='tr';document.documentElement.lang=lang;document.querySelectorAll('[data-copy]').forEach(el=>el.innerHTML=copy[lang][el.dataset.copy]);document.querySelectorAll('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));const badge=document.getElementById('store-badge');badge.src='https://hollow-bomber-play.whitegecko1.chatgpt.site/assets/google-play-'+lang+'.png';badge.alt=copy[lang].badge;try{localStorage.setItem('hb-language',lang)}catch(e){}}
+    document.querySelectorAll('[data-lang]').forEach(el=>el.addEventListener('click',()=>setLanguage(el.dataset.lang)));
+    let chosen;try{chosen=localStorage.getItem('hb-language')}catch(e){}setLanguage(chosen||(navigator.language.startsWith('tr')?'tr':'en'));document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
 </body>
 </html>
